@@ -1,0 +1,78 @@
+{% extends 'basic_page.html' %}
+
+{% block title %}Registration page{% endblock %}
+
+{% block main %}
+    {{super()}}
+    {% if session['was registered'] %}
+        <br><p>{{ session['UsernameRegistration'] | upper() }}, the registration was successful!</p>
+        <br><h3 class="assignment3Title">Search:</h3><br>
+        <form action="/Registration-Search" method="get">
+            <input type="text" name="UsernameSearch" placeholder="Username"><br><br>
+            <input class="contactUsButton" type="submit" name="Search" value="Search"><br><br>
+        </form>
+
+        {% if Username %}
+            <h3>{{ Username }}</h3>
+            <h3>Email: {{ Email }}</h3>
+            <h3>Phone Number: {{ PhoneNumber }}</h3>
+        {% endif %}
+
+        {% if user_dictionary %}
+            <ol>
+                {% for k, v in user_dictionary.items() %}
+                    <li><h4>Username: {{ k }}</h4></li>
+                    <li><h4>email: {{ v[0] }}</h4></li>
+                    <li><h4>Phone Number: {{ v[1] }}</h4></li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+
+        {% if message %}
+            <h3 id="assignment3message">{{ message }}</h3><br>
+        {% endif %}
+
+        <br><br><br><br><br><br><br><br><br><a class="contactUsButton" href="{{url_for('logout_func')}}"> Log out</a><br><br><br><br>
+
+
+    {% else %}
+        <br><h1>Registration and search</h1><br>
+        <h3 class="assignment3Title">Search:</h3><br>
+        <form action="/Registration-Search" method="get">
+            <input type="text" name="UsernameSearch" placeholder="Username"><br><br>
+            <input class="contactUsButton" type="submit" name="Search" value="Search"><br><br>
+        </form>
+
+        {% if Username %}
+            <h3>{{ Username }}</h3>
+            <h3>Email: {{ Email }}</h3>
+            <h3>Phone Number: {{ PhoneNumber }}</h3>
+        {% endif %}
+
+        {% if user_dictionary %}
+            <ol>
+                {% for k, v in user_dictionary.items() %}
+                    <li><h4>Username: {{ k }}</h4></li>
+                    <li><h4>email: {{ v[0] }}</h4></li>
+                    <li><h4>Phone Number: {{ v[1] }}</h4></li><br>
+                {% endfor %}
+            </ol>
+        {% endif %}
+
+        {% if message %}
+            <h3 id="assignment3message">{{ message }}</h3><br>
+        {% endif %}
+
+        <br><h3 class="assignment3Title" >Registration</h3><br>
+        <form action="/Registration-Search" method="post">
+            <small>*</small>
+            <input type="text" name="UsernameRegistration" placeholder="Username" required><br><br>
+            <small>*</small>
+            <input type="email" name="Email" placeholder="Email" required><br><br>
+            <small>*</small>
+            <input type="tel" name="PhoneNumber"  required pattern="[0][5][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" placeholder="Phone Number"><br><br>
+            <input class="contactUsButton" type="submit" value="Submit"><br><br><br>
+        </form>
+    {% endif %}
+
+{% endblock %}

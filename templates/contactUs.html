@@ -1,0 +1,52 @@
+{% extends 'basic_page.html' %}
+{% block title %}Contact Us page for assignment 1 in course WEB{% endblock %}
+
+{% block main %}
+    {{super()}}
+    <div id="container">
+     <br><h1> Contact Us </h1>
+
+    <form id="inputForm" onsubmit="sendMassageAfterSumbit(Event)" action="" method="get">
+        <br>
+        <label class="lable" for="DogsName" >Dog's Name</label> 
+        <input type="text" name="DogsName" id="DogsName"  required>
+        <progress max="70"value="10"></progress><br><br> 
+
+        <label class="lable" for="DogsColor">Dog's Color</label> 
+        <input type="text" name="DogsColor" id="DogsColor" required>
+        <progress max="70"value="20"></progress><br><br> 
+
+        <label class="lable" for="DogsType">Dog's Type</label> 
+        <input type="text" name="DogsType" id="DogsType"  required >
+        <progress  max="70"value="30"></progress><br><br> 
+
+        <label class="lable" for="DogsGender">Dog's Gender</label> 
+        <input list="GenderList" name="DogsGender" id="DogsGender" required  > 
+        <datalist id= "GenderList">
+            <option value=" male"></option>
+            <option value=" female"></option>
+        </datalist>
+        <progress  max="70"value="40"></progress><br><br>
+
+        <label class="lable" for="DogsAge">Dog's Age</label> 
+        <input type="text" name="DogsAge" id="DogsAge" required >
+        <progress  max="70"value="50"></progress><br><br>
+
+        <label class="lable" for="ownersPhoneNumber">Owner's Phone</label>
+        <input type="tel" name="ownersPhoneNumber" id="ownersPhoneNumber" required pattern="[0][5][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" > 
+        <progress  max="70"value="60"></progress><br><br>
+
+        <label class="lable" for="Email">Email</label>
+        <input type="email" name="Email" id="Email" required >
+        <progress  max="70"value="70"></progress><br><br> <br>
+
+        <input class="contactUsButton" type="submit" value="submit">
+        <input class="contactUsButton" type="button" value="clear" onclick="clearF()">  <br> <br><br>
+        <img id="DogGif" src="{{url_for('static', filename='dog gif.gif')}}" alt="Dog2"><br> <br>
+         
+
+    </form>
+</div>
+{% endblock %}
+
+

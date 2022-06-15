@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
+* {
+    text-align:center;
+    color:rgb(85, 154, 144);
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    background-color: rgb(255, 238, 216);
+    font-family: "Monster", sans-serif ;
+}
+    
+.active {
+    color:rgb(135, 184, 177);
+    font-weight: bold;
+}
+
+li, a, button{
+
+    display: inline;
+    grid-area: Nav;
+    font-weight: 500;
+    font-size: 110%;
+    color: rgb(3, 3, 3);
+    text-decoration: none;
+    background-color: rgb(218, 198, 168);
+    margin: 0.4vh;
+}
+
+header{
+    grid-area: Nav;
+    display: flex;
+    justify-content: right;
+    align-items:center;
+    padding: 0.8% 8%;
+    border: 0.5vh solid rgb(202, 162, 145);
+    background-color: rgb(218, 198, 168); 
+}
+
+nav{
+    grid-area: Nav;
+    order:1; 
+    line-height: 1.5em;
+    color: black;
+}
+
+.nav__links{
+    grid-area: Nav;
+    list-style: none;
+    background-color: rgb(218, 198, 168);
+      padding: 1% 1vh;
+}
+
+.nav__links li {
+    grid-area: Nav;
+display: inline-block;
+padding: opx 10%;
+}
+
+.nav__links li a {
+    grid-area: Nav;
+transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+    grid-area: Nav;
+    color:rgb(135, 184, 177);
+}
+
+.cta{
+    order:2;
+}
+
+
+
+button{
+    grid-area: Nav;
+    padding: 8% 2vh;
+    background-color: rgb(200, 184, 177);
+    border: none;
+    border-radius: 20vh;
+    cursor:pointer; 
+    transition: all 0.3s ease 0s;
+}
+
+button:hover{
+    background-color: rgb(135, 184, 177);
+}
+
+
+h2{
+    grid-area: Header;
+    border:none;
+    font-weight: bold;
+    font-size:320%;
+    margin: 1vh; 
+    padding: 1vh;
+}
+
+p{
+    grid-area: Main2;
+    border:none;
+    margin: 1vh; 
+    padding: 1vh; 
+    font-size:x-large;
+}
+
+
+@keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+#DogImg {
+    grid-area: Main1;
+    margin: auto;
+    padding:2vh;
+    display: block;
+    width:65vh;  
+    height: auto; 
+    animation: blink;
+    animation-duration: 2.5s;
+    animation-iteration-count: 1;
+}
+
+
+.lable{
+    color:black;
+    grid-area: Main1;
+    margin:0.8vh; 
+    padding:0.5vh;
+}
+
+#DogGif{
+    grid-area: Main2;
+    width:45vh;
+}
+
+progress::-webkit-progress-value {
+    grid-area: Main1;
+    background-color:rgb(135, 184, 177);
+}
+
+progress::-webkit-progress-bar {
+    grid-area: Main1;
+    background-color: rgb(200, 184, 177);
+}
+
+#container {
+    display: grid;
+    grid-template-areas:
+    'Nav' 
+    'Header'
+    'Main1'
+    'Main2'
+    'Main3'
+    'buttom';
+}
+
+
+@media only screen and (max-width: 600px) {
+    body {background-color:  rgb(199, 184, 164);}
+    #container {
+        display: grid;
+        grid-template-areas: 
+        'Nav'
+        'Header'
+        'Main1'
+        'Main2'
+        'Main3'
+        'buttom';
+    } 
+}
+
+#pText{
+    grid-area: buttom;
+    color:rgb(5, 5, 5);
+    border: none;
+    margin: 1vh; 
+    padding:0.5vh; 
+    font-size: large;
+    font-weight: bold;
+}
+
+.contactUsButton{
+    grid-area: Main3;
+    color:rgb(2, 9, 14);
+    font-size: large;
+    padding: 1% 3vh;
+    background-color: rgb(200, 184, 177);
+    border: none;
+    border-radius: 20vh;
+    cursor:pointer; 
+    transition: all 0.3s ease 0s;
+}
+
+.contactUsButton:hover{
+    background-color: rgb(135, 184, 177);
+}
+
+#buttonID{
+    grid-area:Main3;
+    padding: 1% 3vh;
+    margin-left: 35%;
+    margin-right: 35%; 
+}
+
+.assignment3Title{
+    color: black;
+}
+
+#assignment3message{
+    color:dodgerblue;
+}
+
+#welcomeUser{
+    margin-right: 50vh;
+}
+
+

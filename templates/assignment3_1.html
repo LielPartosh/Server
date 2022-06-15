@@ -1,0 +1,40 @@
+{% extends 'basic_page.html' %}
+{% block title %}About Page{% endblock %}
+
+{% block main %}
+    {{super()}}
+
+    {% if user_info %}
+        <div class="container">
+            <br><h1 >User Info </h1><br>
+
+            {% for title, value in user_info.items() %}
+                <h3 class="assignment3Title">{{ title|capitalize()}}: {{ value| capitalize()}}</h3>
+            {% endfor %}
+
+        </div><br><br>
+
+        <div class="container">
+            <h1>preferences in music</h1>
+            <ul>
+                {% for preference_in_music in preferences_in_music %}
+                    {{ preference_in_music | lower()}}<br>
+                {% endfor %}
+            </ul>
+        </div> <br><br>
+
+        <div class="container">
+            <h1>User Hobbies</h1>
+            <ul>
+                {% for hobbie in hobbies %}
+                    {{ hobbie | lower() }}<br>
+                {% endfor %}
+            </ul>
+        </div>
+
+    {% else %}
+        <br> <h3>Sorry, we couldn't find you</h3>
+
+    {% endif %}
+
+{% endblock %}
