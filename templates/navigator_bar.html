@@ -1,14 +1,16 @@
  <header>
         <nav>
             <ul class=" nav__links">
+
                  {% if session['was registered'] %}
                         <li id="welcomeUser">Welcome, {{ session['UsernameRegistration'] | upper() }}</li>
                  {% endif %}
 
-                <li><a href="{{url_for('registration_search_func')}}">Registration-Search</a></li>
-                <li><a href="{{url_for('about_page_func')}}"> User info</a></li>
-                <li><a href="{{url_for('contactus_func')}}"> Contact us</a></li>
-                <li><a href="{{url_for('homepage_func')}}"> Home page</a></li>
+                <li><a href="{{url_for('assignment4.assignment4_func')}}">Users</a></li>
+                <li><a href="{{url_for('assignment3_2.registration_search_func')}}">Registration-Search</a></li>
+                <li><a href="{{url_for('assignment3_1.about_page_func')}}"> User info</a></li>
+                <li><a href="{{url_for('contactUs.contactus_func')}}"> Contact us</a></li>
+                <li><a href="{{url_for('HomePage.homepage_func')}}"> Home page</a></li>
 
             </ul>
         </nav>
