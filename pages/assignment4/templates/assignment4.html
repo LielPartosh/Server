@@ -1,0 +1,97 @@
+{% extends 'basic_page.html' %}
+{% block title %}Users Page{% endblock %}
+
+{% block main %}
+    {{super()}}
+    <br><h1>Users</h1>
+
+    <div class="container">
+        <h3 class="assignment3Title">Insert user</h3><br>
+        <form action="/insert_user" method="POST">
+
+            <small>*</small>
+            <input type="text" name="username" placeholder="Username" required><br><br>
+            <small>*</small>
+            <input type="email" name="email" placeholder="Email" required><br><br>
+            <small>*</small>
+            <input type="tel" name="phone_number"  required pattern="[0][5][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" placeholder="Phone Number"><br><br>
+            <input class="contactUsButton" type="submit" value="Submit"><br><br>
+
+            {% if message1 %}
+            <h3 id="assignment3message">{{ message1 }}</h3><br>
+            {% endif %}
+
+        </form>
+    </div><br><br>
+
+    <div class="container">
+    <h3 class="assignment3Title">Update user</h3><br>
+        <form action="/update_user" method="POST">
+
+            <small>*</small>
+            <input type="text" name="username" placeholder="Username" required><br><br>
+            <small>*</small>
+            <input type="email" name="email" placeholder="Email" required><br><br>
+            <small>*</small>
+            <input type="tel" name="phone_number"  required pattern="[0][5][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" placeholder="Phone Number"><br><br>
+            <input class="contactUsButton" type="submit" value="Update"><br><br>
+
+            {% if message3 %}
+            <h3 id="assignment3message">{{ message3 }}</h3><br>
+            {% endif %}
+
+        </form>
+    </div><br><br>
+
+    <div class="container">
+        <h3 class="assignment3Title">Delete user</h3><br>
+        <form action="/delete_user" method="post">
+            <input type="text" name="username" placeholder="Username" required><br><br>
+            <input class="contactUsButton" type="submit" value="Delete"><br><br>
+
+            {% if message2 %}
+                <h3 id="assignment3message">{{ message2 }}</h3><br>
+            {% endif %}
+
+          </form>
+    </div><br><br>
+
+
+    <h3 class="assignment3Title">List of all users</h3>
+    {% for user in users %}
+        <div class="container">
+            {#{{ user }}#}
+            <h3>{{ user.username }}</h3>
+            <h4>Email: {{ user.email }}</h4>
+            <h4>Phone number: 0{{ user.phone_number }}</h4>
+        </div>
+    {% endfor %}
+
+
+    <br><br><h2>Outer source</h2><br>
+    <h3 class="assignment3Title">Frontend</h3><br>
+    User ID: <input type="text" id="user_id" >
+    <button class="contactUsButton" onclick="get_user_json(document.getElementById('user_id').value)">Get user</button></h3><br><br>
+
+    <main>
+
+    </main>
+
+    <br><br><h3 class="assignment3Title">Backend</h3><br>
+    <form action="/assignment4/outer_source" method="get">
+        User ID: <input type="text" name="user_id" >
+        <input class="contactUsButton" type="submit" value="Get user">
+    </form><br><br>
+
+
+    {% if session.user %}
+        <h4>ID: {{ session.user.id }}</h4>
+        <h4>Email: {{ session.user.email }}</h4>
+        <h4>First name: {{ session.user.first_name }}</h4>
+        <h4>Last name: {{ session.user.last_name }}</h4>
+        <img src="{{ session.user.avatar }}" alt="pic"><br><br><br>
+        <hr>
+    {% endif %}
+
+
+{% endblock %}
